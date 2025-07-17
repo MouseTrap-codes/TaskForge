@@ -19,6 +19,8 @@ export function Project(projectName) {
 
     return {
         addTodo,
-        getTodos
+        getTodos,
+        getName,
+        setName
     }; 
 }
