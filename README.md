@@ -1,4 +1,4 @@
-🔨 # TaskForge - A powerful project-based todo application built with vanilla JavaScript
+## TaskForge - A powerful project-based todo application built with vanilla JavaScript
 
 Forge your productivity with organized project management and intelligent task tracking. TaskForge combines clean design with robust functionality to help you manage multiple projects and prioritize tasks effectively.
 
