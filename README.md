@@ -1,6 +1,6 @@
-## TaskForge - A powerful project-based todo application built with vanilla JavaScript
+## **taskdb** - A powerful project-based todo application built with vanilla JavaScript
 
-Forge your productivity with organized project management and intelligent task tracking. TaskForge combines clean design with robust functionality to help you manage multiple projects and prioritize tasks effectively.
+Database-inspired task management that scales with your workflow. taskDB brings the organizational power of database thinking to personal productivity, helping you structure, query, and manage tasks across multiple projects with precision.
 
 ✨ Features:
 - Project-based organization with default and custom projects
