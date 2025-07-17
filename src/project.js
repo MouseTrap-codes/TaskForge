@@ -1,5 +1,5 @@
 // todo: complete query and order
-import { query } from "./query.js";
+import { query } from "./query-utils.js";
 
 export function Project(projectName) {
     let name = projectName;
@@ -25,14 +25,9 @@ export function Project(projectName) {
         return todoItemsList;
     }
 
-    function queryTodos() {
+    function queryTodos(queryCriteria) {
         params = ["title", "description", "dueDate", "priority"]
-        relevantTodos = [];
-        todoItemsList.forEach((todoItem) => {
-            if (todoItem.getPriority() === priority) {
-                relevantTodos.push(todoItem)
-            }
-        });
+        return query(todoItemsList, queryParams, queryCriteria)
 
         return relevantTodos;
     }
