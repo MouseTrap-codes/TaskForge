@@ -1,0 +1,29 @@
+{
+  "name": "taskforge",
+  "version": "1.0.0",
+  "description": "Forge your productivity with organized project management and intelligent task tracking. TaskForge combines clean design with robust functionality to help you manage multiple projects and prioritize tasks effectively.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MouseTrap-codes/TaskForge.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MouseTrap-codes/TaskForge/issues"
+  },
+  "homepage": "https://github.com/MouseTrap-codes/TaskForge#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "html-loader": "^5.1.0",
+    "html-webpack-plugin": "^5.6.3",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.100.2",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}
