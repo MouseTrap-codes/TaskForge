@@ -4,13 +4,22 @@ import { query } from "./query-utils.js";
 export function Project(projectName) {
     let name = projectName;
     let todoItemsList = [];
-    let priorities = [low, medium, high];
-    let criteria = ["name", ]
+    const PRIORITIES = {
+        URGENT: "urgent",
+        HIGH: "high",
+        MEDIUM: "medium",
+        LOW: "low"
+    }
 
     function addTodo(todoItem) {
         if (todoItem.getProject() === name) {
             todoItemsList.push(todoItem);
         }
+    }
+
+    // orderby function here
+    function orderTodos(field) {
+
     }
 
     function removeTodo(todoItem) {
@@ -27,21 +36,7 @@ export function Project(projectName) {
 
     function queryTodos(queryCriteria) {
         params = ["title", "description", "dueDate", "priority"]
-        return query(todoItemsList, queryParams, queryCriteria)
-
-        return relevantTodos;
-    }
-
-
-    function showOnlyIncomplete() {
-        relevantTodos = [];
-        todoItemsList.forEach((todoItem) => {
-            if (todoItem.getPriority() === priority) {
-                relevantTodos.push(todoItem)
-            }
-        });
-
-        return relevantTodos;
+        return query(todoItemsList, params, queryCriteria)
     }
 
     const getName = () => name
