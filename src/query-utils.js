@@ -8,12 +8,19 @@
         return items
     }
 
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     let relevantItems = items.filter((item) => 
-            queryCriteria.every((queryCriterion) => 
-                queryParams.includes(queryCriterion.param)
-                &&
-                // need to change this logic to work with getter methods -> can't directly access stuff like this
-                item[queryCriterion.param] === queryCriterion.value
+            queryCriteria.every((queryCriterion) => {
+                const getterName = "get" + capitalize(queryCriterion.param);
+                if (typeof item[getterName] !== "function") {
+                    return false;
+                }
+                // now works with getterss
+                return queryParams.includes(queryCriterion.param) && item[getterName]() === queryCriterion.value;
+            }
             )
         )
 

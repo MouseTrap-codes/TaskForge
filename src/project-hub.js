@@ -1,9 +1,8 @@
 import { Project } from "./project.js";
-import { todoItem }  from "./todo-item.js"
 import { query } from "./query-utils.js";
 import { orderBy } from "./order-by.js";
 
-export function ProjectManager() {
+export function ProjectHub() {
     projectList = [];
 
     const addProject = function(newProjectName) {
@@ -25,14 +24,11 @@ export function ProjectManager() {
         projectList = orderBy(projectList, field, projectFieldList);
     }
 
-    function orderTodos(field) {
-        const projectFieldList = ["dueDate", "priority"];
-        todoItemsList = orderBy(todoItemsList, field, projectFieldList);
-    }
-
 
     return {
         addProject,
-        getProjects
+        getProjects,
+        queryProjects,
+        orderProjectsBy
     }
 }
