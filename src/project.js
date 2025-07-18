@@ -1,15 +1,11 @@
 // todo: complete query and order
 import { query } from "./query-utils.js";
+import { orderBy } from "./order-by.js";
 
 export function Project(projectName) {
     let name = projectName;
     let todoItemsList = [];
-    const PRIORITIES = {
-        URGENT: "urgent",
-        HIGH: "high",
-        MEDIUM: "medium",
-        LOW: "low"
-    }
+   
 
     function addTodo(todoItem) {
         if (todoItem.getProject() === name) {
@@ -17,9 +13,9 @@ export function Project(projectName) {
         }
     }
 
-    // orderby function here
     function orderTodos(field) {
-
+        const todoFieldList = ["dueDate", "priority"];
+        todoItemsList = orderBy(todoItemsList, field, todoFieldList);
     }
 
     function removeTodo(todoItem) {
@@ -47,6 +43,7 @@ export function Project(projectName) {
         removeTodo,
         getTodos,
         queryTodos,
+        orderTodos,
         getName,
         setName
     }; 

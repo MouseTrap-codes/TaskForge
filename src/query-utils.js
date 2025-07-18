@@ -12,6 +12,7 @@
             queryCriteria.every((queryCriterion) => 
                 queryParams.includes(queryCriterion.param)
                 &&
+                // need to change this logic to work with getter methods -> can't directly access stuff like this
                 item[queryCriterion.param] === queryCriterion.value
             )
         )
