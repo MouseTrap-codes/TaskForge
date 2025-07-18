@@ -30,4 +30,6 @@ function orderByPriority(items) {
 
 function orderByName(items) {
     items.sort((a, b) => a.name - b.name) // just get lexicographic ordering
-}
+} 
+
+// todo: orderBy dueDate + priority
