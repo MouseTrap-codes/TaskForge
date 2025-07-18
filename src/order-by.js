@@ -20,7 +20,7 @@ function orderByDate(items) {
 // todo: implement this
 function orderByPriority(items) {
     function compareFn(a, b) {
-        return PRIORITIES_ORDER(a.getPriority() - b.getPriority()); // want ascending order
+        return PRIORITIES_ORDER[a.getPriority()] - PRIORITIES_ORDER[b.getPriority()]; // want ascending order
     }
 
     items.sort(compareFn);
@@ -33,3 +33,9 @@ function orderByName(items) {
 } 
 
 // todo: orderBy dueDate + priority
+function orderByDueDateAndPriority(items) {
+    function compareFn(a, b) {
+        return PRIORITIES_ORDER[a.getPriority()] - PRIORITIES_ORDER[b.getPriority()]
+        && b.getDueDate() - a.getDueDate();
+    }
+}
