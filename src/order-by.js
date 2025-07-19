@@ -1,7 +1,7 @@
 import { PRIORITIES_ORDER } from "./priorities";
 
 
-export function orderBy(items, field, fieldList) {
+export function orderBy(items, field, fieldList = []) {
     const list = [...items];
     if (fieldList.includes("dueDate") && field === "dueDate") {
          return orderByDate(list);
@@ -12,7 +12,7 @@ export function orderBy(items, field, fieldList) {
     } else if (fieldList.includes("priority") && fieldList.includes("dueDate")
                 && field === "dueDate and priority") {
         return orderByDueDateAndPriority(list);
-    } else if (fieldList.includes("name") && fieldList.includes("name")) {
+    } else if (fieldList.includes("projectName") && field === "projectName") {
         return orderByProjectName(list);
     } else {
         return list;
