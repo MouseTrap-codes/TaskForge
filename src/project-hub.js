@@ -3,7 +3,7 @@ import { query } from "./query-utils.js";
 import { orderBy } from "./order-by.js";
 
 export function ProjectHub() {
-    projectList = [];
+    let projectList = [];
 
     const addProject = function(newProjectName) {
         projectToAdd = Project(newProjectName);
@@ -15,7 +15,7 @@ export function ProjectHub() {
     }
 
     function queryProjects(queryCriteria) {
-        params = ["projectName"];
+        let params = ["projectName"];
         return query(projectList, params, queryCriteria);
     }
 

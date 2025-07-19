@@ -1,17 +1,22 @@
 import { PRIORITIES_ORDER } from "./priorities";
 
 
-export function orderBy(items, fieldList) {
+export function orderBy(items, field, fieldList) {
+    const list = [...items];
     if (fieldList.includes("dueDate") && field === "dueDate") {
-        orderByDate(items);
+         return orderByDate(list);
     } else if (fieldList.includes("priority") && field === "priority") {
-        orderByPriority(items);
-    } else if (fieldList.includes("name") && field === "name") {
-        orderByName(items);
+        return orderByPriority(list);
+    } else if (fieldList.includes("title") && field === "title") {
+        return orderByTitle(list);
     } else if (fieldList.includes("priority") && fieldList.includes("dueDate")
                 && field === "dueDate and priority") {
-        orderByDueDateAndPriority(items);
-    } 
+        return orderByDueDateAndPriority(list);
+    } else if (fieldList.includes("name") && fieldList.includes("name")) {
+        return orderByProjectName(list);
+    } else {
+        return list;
+    }
 }
 
 // special logic for ordering by date
@@ -31,14 +36,19 @@ function orderByPriority(items) {
     return items;
 }
 
-function orderByName(items) {
-    items.sort((a, b) => a.name - b.name) // just get lexicographic ordering
+function orderByTitle(items) {
+    return items.sort((a, b) => a.getTitle().localeCompare(b.getTitle())); // just get lexicographic ordering
 } 
 
-// todo: orderBy dueDate + priority
 function orderByDueDateAndPriority(items) {
-    function compareFn(a, b) {
-        return PRIORITIES_ORDER[a.getPriority()] - PRIORITIES_ORDER[b.getPriority()]
-        && b.getDueDate() - a.getDueDate();
-    }
+    return items.sort((a, b) => {
+    const prioDiff =
+      PRIORITIES_ORDER[a.getPriority()] - PRIORITIES_ORDER[b.getPriority()];
+    if (prioDiff !== 0) return prioDiff; // lower numeric value = higher priority
+    return b.getDueDate() - a.getDueDate(); // same priority → newer due date first
+  });
+}
+
+function orderByProjectName(items) {
+    return items.sort((a, b) => a.getName().localeCompare(b.getName()));
 }

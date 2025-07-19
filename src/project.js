@@ -18,10 +18,10 @@ export function Project(projectName) {
         todoItemsList = orderBy(todoItemsList, field, todoFieldList);
     }
 
-    function removeTodo(todoItem) {
+    function removeTodo(todoItemToRemove) {
         todoItemsList.splice(
             todoItemsList
-            .findIndex(todoItem => todoItem === todo),
+            .findIndex(todoItem => todoItem === todoItemToRemove),
             1
         )
     }
