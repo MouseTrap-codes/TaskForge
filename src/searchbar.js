@@ -1,17 +1,17 @@
-export function searchBarLogic(items, searchContent) {
-    items.filter((item) => item.includes(searchContent));
-    return items;
-}
+// searchbar.js
+import { displayProjectsOnSidebar } from "./sidebar-projectlinks";
 
+export function createSearchBar(content, projectHub) {
+    let items = projectHub.getProjects();
 
-function createSearchBar(content) {
     function searchBarLogic(items, searchContent) {
-        items.filter((item) => item.includes(searchContent));
-        return items;
+        displayProjectsOnSidebar(items.filter((item) => item.includes(searchContent)));
     }
+
     // create div for sidebar
-    const sidebarDiv = document.createElement("div");
-    sidebarDiv.classList.toggle("sidebar");
+    // const sidebarDiv = document.createElement("div");
+    // sidebarDiv.classList.toggle("sidebar");
+    // content.appendChild(sidebarDiv);
 
     // logic for creating a new project
 
@@ -26,15 +26,19 @@ function createSearchBar(content) {
     input.type = "text";
     input.name = "search";
     input.id = "search";
-    input.textContent = "Search Projects";
+    input.placeholder = "Search Projects";
 
     form.appendChild(input);
     formDiv.appendChild(form);
-    content.appendChild(formDiv);
+    sidebarDiv.appendChild(formDiv);
+
+    // initial display of projects
+    displayProjectsOnSidebar(items, sidebarDiv);
+    
 
     input.addEventListener("keyup", () => {
-        if (input.textContent.length >= 1) {
-            searchBarLogic(projectHub.getProjects(), input.textContent);
+        if (input.value.length >= 1) {
+            searchBarLogic(items, input.textContent);
         }
     })
 

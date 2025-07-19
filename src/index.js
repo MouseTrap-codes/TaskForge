@@ -1,6 +1,5 @@
+// index.js
 import "./styles.css"
-import { ProjectHub } from "./project-hub.js"
+import { createProjectHub } from "./project-hub-DOM.js"
 
-function createHomepage() {
-    let projectHub = ProjectHub();
-}
+createProjectHub();
