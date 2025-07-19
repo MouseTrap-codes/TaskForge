@@ -1,5 +1,9 @@
-export function sideBarDom(currentProject, projectList) {
+import { searchBarLogic } from "./searchbar-logic.js";
+
+export function sideBarDom(currentProject, projectHub) {
     const content = document.querySelector(".content");
+
+    let projectsOnSidebar = projectHub.getProjects();
     
     // create div for sidebar
     const sidebarDiv = document.createElement("div");
@@ -8,7 +12,7 @@ export function sideBarDom(currentProject, projectList) {
     // logic for creating a new project
 
     // create searchbar
-    createSearchBar(content);
+    createSearchBar(content, projectsOnSidebar);
 }
 
 function createSearchBar(content) {
@@ -34,5 +38,9 @@ function createSearchBar(content) {
     form.appendChild(input);
     formDiv.appendChild(form);
     content.appendChild(formDiv);
+
+    input.addEventListener("keyup", () => {
+        searchBarLogic(projectHub.getProjects(), input.textContent);
+    })
 
 }
