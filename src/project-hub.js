@@ -4,6 +4,16 @@ import { orderBy } from "./order-by.js";
 
 export function ProjectHub() {
     let projectList = [];
+    let currentProject;
+    if (projectList.length >= 1) {
+        currentProject = projectList[0];
+    }
+
+    const setCurrentProject = function(projectName) {
+        if (projectList.includes(projectName)) {
+            currentProject = projectName;
+        }
+    }
 
     const addProject = function(newProjectName) {
         projectToAdd = Project(newProjectName);
@@ -29,6 +39,7 @@ export function ProjectHub() {
         addProject,
         getProjects,
         queryProjects,
-        orderProjectsBy
+        orderProjectsBy,
+        setCurrentProject
     }
 }
