@@ -4,3 +4,24 @@
     box-sizing: border-box;
 }
 
+.container {
+    display: grid;
+    grid-template-rows: 1fr 8fr;
+    height: 100vh;
+
+    border: 1px solid black;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    gap: 40px;
+    padding: 30px 50px;
+
+    border: 1px solid black;
+}
+
+.sub-container {
+    display: grid;
+}
+

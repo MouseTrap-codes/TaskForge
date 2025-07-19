@@ -1,10 +1,12 @@
 {
-  "name": "taskforge",
+  "name": "taskdb",
   "version": "1.0.0",
   "description": "Forge your productivity with organized project management and intelligent task tracking. TaskForge combines clean design with robust functionality to help you manage multiple projects and prioritize tasks effectively.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve --open --config webpack.config.js",
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
