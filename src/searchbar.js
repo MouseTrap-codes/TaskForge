@@ -5,6 +5,10 @@ export function searchBarLogic(items, searchContent) {
 
 
 function createSearchBar(content) {
+    function searchBarLogic(items, searchContent) {
+        items.filter((item) => item.includes(searchContent));
+        return items;
+    }
     // create div for sidebar
     const sidebarDiv = document.createElement("div");
     sidebarDiv.classList.toggle("sidebar");
