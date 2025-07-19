@@ -14,7 +14,7 @@ export function Project(projectName) {
     }
 
     function orderTodos(field) {
-        const todoFieldList = ["dueDate", "priority"];
+        const todoFieldList = ["dueDate", "priority", "name"];
         todoItemsList = orderBy(todoItemsList, field, todoFieldList);
     }
 

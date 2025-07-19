@@ -6,9 +6,12 @@ export function orderBy(items, fieldList) {
         orderByDate(items);
     } else if (fieldList.includes("priority") && field === "priority") {
         orderByPriority(items);
-    } else if (field.List.includes("name") && field === "name") {
-        orderByName(items)
-    }
+    } else if (fieldList.includes("name") && field === "name") {
+        orderByName(items);
+    } else if (fieldList.includes("priority") && fieldList.includes("dueDate")
+                && field === "dueDate and priority") {
+        orderByDueDateAndPriority(items);
+    } 
 }
 
 // special logic for ordering by date
